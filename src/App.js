@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <p>Hey Ansh</p>
-      <button onClick={()=> setData("Data Updated")}>Update Data</button>
+      <button onClick={()=> setData("Data Updated")}>Update Something</button>
       <h1>{data}</h1>
     </div>
   )
