@@ -1,9 +1,7 @@
-import { render } from "@testing-library/react";
-import App from "./App";
+import Users from "./Users";
+import renderer from 'react-test-renderer'
 
-test("Snapshot for App file", ()=> {
-    const container = render(<App />)
-    expect(container).toMatchSnapshot();
+test("Testing methods of class based component", ()=> {
+    const componentData = renderer.create(<Users />).getInstance();
+    expect(componentData.getUserList("test")).toMatch("test")
 })
-
-// Through this, it will throw me an error if I'm gonna change something in the <App /> component because a snapshot of it has already been saved in __snapshot__ folder

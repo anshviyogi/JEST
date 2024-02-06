@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Users from "./Users.js"
 
 function App() {
-  const [data, setData] = useState("")
-
   return (
     <div>
-      <p>Hey Ansh</p>
-      <button onClick={()=> setData("Data Updated")}>Update Something</button>
-      <h1>{data}</h1>
+      <h1>Class Based Component Testing</h1>
+      <Users />
     </div>
   )
 }
