@@ -1,7 +1,17 @@
-import Users from "./Users";
-import renderer from 'react-test-renderer'
+import { fireEvent, render, screen } from "@testing-library/react"
+import App from "./App"
+import handleOtherMethod from "./helper"
 
-test("Testing methods of class based component", ()=> {
-    const componentData = renderer.create(<Users />).getInstance();
-    expect(componentData.getUserList("test")).toMatch("test")
+test("Testing functional component method", ()=> {
+    render(<App />)
+    const btn = screen.getByTestId("btn1")
+    fireEvent.click(btn)
+    const output = screen.getByText("hello")
+    expect(output).toBeInTheDocument();
+})
+
+// To test a method who is not responsible for any UI change, we should export default that function in some other file and test that manually
+
+test("method testing case 2", ()=> {
+    expect(handleOtherMethod()).toMatch("hi")
 })
